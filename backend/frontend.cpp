@@ -23,6 +23,35 @@ void registerFrontend(crow::SimpleApp& app) {
         return res;
     });
 
+
+
+
+
+        CROW_ROUTE(app, "/M2/Math/quadratic-solver")
+    ([] {
+        crow::response res;
+        res.set_static_file_info("frontend/M2/Math/quadratic-solver/index.html");
+        return res;
+    });
+
+    CROW_ROUTE(app, "/M2/Math/quadratic-solver/script.js")
+    ([] {
+        crow::response res;
+        res.set_static_file_info("frontend/M2/Math/quadratic-solver/script.js");
+        return res;
+    });
+
+    CROW_ROUTE(app, "/M2/Math/quadratic-solver/style.css")
+    ([] {
+        crow::response res;
+        res.set_static_file_info("frontend/M2/Math/quadratic-solver/style.css");
+        return res;
+    });
+
+
+
+
+
     CROW_ROUTE(app, "/M2/Science/planet-weight")
     ([] {
         crow::response res;

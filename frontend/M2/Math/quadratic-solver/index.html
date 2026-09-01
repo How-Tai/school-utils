@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quadratic Solver</title>
+
+    <link rel="stylesheet" href="/M2/Math/quadratic-solver/style.css">
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']]
+            }
+        };
+    </script>
+
+    <script
+        id="MathJax-script"
+        async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+
+<body>
+
+    <a class="back-button" href="/">← Back</a>
+
+    <main>
+        <h1>Quadratic Solver</h1>
+
+        <form id="solver">
+            <div class="equation-input">
+                <input type="number" id="a" step="any" placeholder="a" required>
+                <span>x² +</span>
+
+                <input type="number" id="b" step="any" placeholder="b" required>
+                <span>x +</span>
+
+                <input type="number" id="c" step="any" placeholder="c" required>
+                <span>= 0</span>
+            </div>
+
+            <div class="method-section">
+                <label for="method">Method</label>
+
+                <select id="method">
+                    <option value="1">Quadratic Formula</option>
+                    <option value="2">Completing the Square</option>
+                    <option value="3">Cross Method</option>
+                </select>
+            </div>
+
+            <button type="submit">Solve</button>
+        </form>
+
+        <p id="error" class="error hidden"></p>
+
+        <section id="result" class="hidden">
+            <h2 id="method-name"></h2>
+
+            <div id="roots"></div>
+
+            <div id="cross-visual" class="hidden"></div>
+
+            <div id="steps"></div>
+        </section>
+    </main>
+
+    <script src="/M2/Math/quadratic-solver/script.js"></script>
+
+</body>
+</html>

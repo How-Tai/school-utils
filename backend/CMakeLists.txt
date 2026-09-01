@@ -11,7 +11,8 @@ add_executable(server
     main.cpp
     paths.cpp
     frontend.cpp
-    M2/Science/planetWeightCalculator.cpp
+    M2/Math/quadratic-solver/quadraticSolver.cpp
+    M2/Science/planet-weight/planetWeightCalculator.cpp
 )
 
 target_link_libraries(server PRIVATE Crow::Crow)
