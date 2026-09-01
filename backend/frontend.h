@@ -1,4 +1,4 @@
 #pragma once
 #include <crow.h>
 
-void initFrontend(crow::SimpleApp& app);
+void registerFrontend(crow::SimpleApp& app);
