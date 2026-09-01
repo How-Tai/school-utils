@@ -1,0 +1,40 @@
+FROM ubuntu:24.04 AS builder
+
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    cmake \
+    git \
+    libasio-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Crow
+RUN git clone --depth 1 --branch v1.3.2 \
+    https://github.com/CrowCpp/Crow.git /tmp/crow \
+    && cmake -S /tmp/crow -B /tmp/crow/build \
+       -DCROW_BUILD_EXAMPLES=OFF \
+       -DCROW_BUILD_TESTS=OFF \
+    && cmake --install /tmp/crow/build
+
+WORKDIR /app
+
+COPY backend/ ./backend/
+COPY frontend/ ./frontend/
+
+RUN cmake -S backend -B backend/build -DCMAKE_BUILD_TYPE=Release
+RUN cmake --build backend/build -j2
+
+
+FROM ubuntu:24.04
+
+RUN apt-get update && apt-get install -y \
+    libasio-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+
+COPY --from=builder /app/backend/build/server ./server
+COPY frontend/ ./frontend/
+
+ENV PORT=80
+
+CMD ["./server"]
