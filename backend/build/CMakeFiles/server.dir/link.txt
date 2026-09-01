@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/server.dir/main.cpp.o CMakeFiles/server.dir/paths.cpp.o CMakeFiles/server.dir/frontend.cpp.o CMakeFiles/server.dir/M2/Science/planetWeightCalculator.cpp.o -o server 
