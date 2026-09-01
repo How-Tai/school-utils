@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planet Weight Calculator</title>
+    <link rel="stylesheet" href="/M2/Science/planet-weight/style.css">
+</head>
+
+<body>
+
+    <a class="back-button" href="/">← Back</a>
+
+    <main>
+        <h1>Planet Weight Calculator</h1>
+
+        <form id="calculator" class="input-section">
+            <label for="mass">Mass on Earth (kg)</label>
+
+            <input
+                type="number"
+                id="mass"
+                min="0"
+                step="any"
+                placeholder="Enter mass"
+                required
+            >
+
+            <button type="submit">
+                Calculate
+            </button>
+        </form>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Planet / Body</th>
+                    <th>Gravity compared to Earth</th>
+                    <th>Weight (N)</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Earth</td>
+                    <td>1.00×</td>
+                    <td id="Earth">—</td>
+                </tr>
+
+                <tr>
+                    <td>Mercury</td>
+                    <td>0.38×</td>
+                    <td id="Mercury">—</td>
+                </tr>
+
+                <tr>
+                    <td>Venus</td>
+                    <td>0.90×</td>
+                    <td id="Venus">—</td>
+                </tr>
+
+                <tr>
+                    <td>Moon</td>
+                    <td>0.165×</td>
+                    <td id="Moon">—</td>
+                </tr>
+
+                <tr>
+                    <td>Mars</td>
+                    <td>0.38×</td>
+                    <td id="Mars">—</td>
+                </tr>
+
+                <tr>
+                    <td>Jupiter</td>
+                    <td>2.53×</td>
+                    <td id="Jupiter">—</td>
+                </tr>
+
+                <tr>
+                    <td>Saturn</td>
+                    <td>1.07×</td>
+                    <td id="Saturn">—</td>
+                </tr>
+
+                <tr>
+                    <td>Uranus</td>
+                    <td>0.89×</td>
+                    <td id="Uranus">—</td>
+                </tr>
+
+                <tr>
+                    <td>Neptune</td>
+                    <td>1.14×</td>
+                    <td id="Neptune">—</td>
+                </tr>
+
+                <tr>
+                    <td>Pluto</td>
+                    <td>0.063×</td>
+                    <td id="Pluto">—</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <script src="/M2/Science/planet-weight/script.js"></script>
+</body>
+
+</html>

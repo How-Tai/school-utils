@@ -1,6 +1,7 @@
 #include <crow.h>
 
 void registerFrontend(crow::SimpleApp& app) {
+
     CROW_ROUTE(app, "/")
     ([] {
         crow::response res;
@@ -19,6 +20,27 @@ void registerFrontend(crow::SimpleApp& app) {
     ([] {
         crow::response res;
         res.set_static_file_info("frontend/script.js");
+        return res;
+    });
+
+    CROW_ROUTE(app, "/M2/Science/planet-weight")
+    ([] {
+        crow::response res;
+        res.set_static_file_info("frontend/M2/Science/planet-weight/index.html");
+        return res;
+    });
+
+    CROW_ROUTE(app, "/M2/Science/planet-weight/script.js")
+    ([] {
+        crow::response res;
+        res.set_static_file_info("frontend/M2/Science/planet-weight/script.js");
+        return res;
+    });
+
+    CROW_ROUTE(app, "/M2/Science/planet-weight/style.css")
+    ([] {
+        crow::response res;
+        res.set_static_file_info("frontend/M2/Science/planet-weight/style.css");
         return res;
     });
 }

@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/server.dir/M2/Science/planetWeightCalculator.cpp.o"
   "CMakeFiles/server.dir/M2/Science/planetWeightCalculator.cpp.o.d"
+  "CMakeFiles/server.dir/frontend.cpp.o"
+  "CMakeFiles/server.dir/frontend.cpp.o.d"
   "CMakeFiles/server.dir/main.cpp.o"
   "CMakeFiles/server.dir/main.cpp.o.d"
   "CMakeFiles/server.dir/paths.cpp.o"

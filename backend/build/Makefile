@@ -153,6 +153,30 @@ M2/Science/planetWeightCalculator.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/M2/Science/planetWeightCalculator.cpp.s
 .PHONY : M2/Science/planetWeightCalculator.cpp.s
 
+frontend.o: frontend.cpp.o
+.PHONY : frontend.o
+
+# target to build an object file
+frontend.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/frontend.cpp.o
+.PHONY : frontend.cpp.o
+
+frontend.i: frontend.cpp.i
+.PHONY : frontend.i
+
+# target to preprocess a source file
+frontend.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/frontend.cpp.i
+.PHONY : frontend.cpp.i
+
+frontend.s: frontend.cpp.s
+.PHONY : frontend.s
+
+# target to generate assembly for a file
+frontend.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/server.dir/build.make CMakeFiles/server.dir/frontend.cpp.s
+.PHONY : frontend.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -213,6 +237,9 @@ help:
 	@echo "... M2/Science/planetWeightCalculator.o"
 	@echo "... M2/Science/planetWeightCalculator.i"
 	@echo "... M2/Science/planetWeightCalculator.s"
+	@echo "... frontend.o"
+	@echo "... frontend.i"
+	@echo "... frontend.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

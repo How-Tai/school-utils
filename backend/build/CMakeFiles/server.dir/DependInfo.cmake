@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/workspaces/school-utils/backend/M2/Science/planetWeightCalculator.cpp" "CMakeFiles/server.dir/M2/Science/planetWeightCalculator.cpp.o" "gcc" "CMakeFiles/server.dir/M2/Science/planetWeightCalculator.cpp.o.d"
+  "/workspaces/school-utils/backend/frontend.cpp" "CMakeFiles/server.dir/frontend.cpp.o" "gcc" "CMakeFiles/server.dir/frontend.cpp.o.d"
   "/workspaces/school-utils/backend/main.cpp" "CMakeFiles/server.dir/main.cpp.o" "gcc" "CMakeFiles/server.dir/main.cpp.o.d"
   "/workspaces/school-utils/backend/paths.cpp" "CMakeFiles/server.dir/paths.cpp.o" "gcc" "CMakeFiles/server.dir/paths.cpp.o.d"
   )

@@ -921,4 +921,5 @@ CMakeFiles/server.dir/paths.cpp.o: \
  /workspaces/school-utils/vcpkg/installed/x64-linux/include/crow/http_server.h \
  /workspaces/school-utils/vcpkg/installed/x64-linux/include/crow/version.h \
  /workspaces/school-utils/vcpkg/installed/x64-linux/include/crow/app.h \
+ /workspaces/school-utils/backend/frontend.h \
  /workspaces/school-utils/backend/M2/Science/planetWeightCalculator.h
