@@ -1,6 +1,6 @@
 #include <crow.h>
 
-void initFrontend(crow::SimpleApp& app) {
+void registerFrontend(crow::SimpleApp& app) {
     CROW_ROUTE(app, "/")
     ([] {
         crow::response res;
