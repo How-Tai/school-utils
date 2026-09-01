@@ -10,6 +10,7 @@ find_package(Crow CONFIG REQUIRED)
 add_executable(server
     main.cpp
     paths.cpp
+    frontend.cpp
     M2/Science/planetWeightCalculator.cpp
 )
 
