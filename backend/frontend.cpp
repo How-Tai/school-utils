@@ -72,4 +72,29 @@ void registerFrontend(crow::SimpleApp& app) {
         res.set_static_file_info("frontend/M2/Science/planet-weight/style.css");
         return res;
     });
+
+
+
+
+
+    CROW_ROUTE(app, "/M2/Science/sig-fig-counting")
+    ([] {
+        crow::response res;
+        res.set_static_file_info("frontend/M2/Science/sig-fig-counting/index.html");
+        return res;
+    });
+
+    CROW_ROUTE(app, "/M2/Science/sig-fig-counting/script.js")
+    ([] {
+        crow::response res;
+        res.set_static_file_info("frontend/M2/Science/sig-fig-counting/script.js");
+        return res;
+    });
+
+    CROW_ROUTE(app, "/M2/Science/sig-fig-counting/style.css")
+    ([] {
+        crow::response res;
+        res.set_static_file_info("frontend/M2/Science/sig-fig-counting/style.css");
+        return res;
+    });
 }

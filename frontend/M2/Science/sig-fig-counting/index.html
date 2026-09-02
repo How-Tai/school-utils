@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Significant Figure Counter</title>
+
+	<link rel="stylesheet" href="/M2/Science/sig-fig-counting/style.css">
+</head>
+
+<body>
+	<a class="back-button" href="/">← Back</a>
+
+	<main>
+		<div class="calculator">
+			<h1>Significant Figure Counter</h1>
+
+			<p class="description">
+				Enter a number to count how many significant figures it has.
+			</p>
+
+			<form id="sig-fig-form">
+				<label for="input">Number</label>
+
+				<input
+					type="text"
+					id="input"
+					placeholder="Example: 67 or 1.20e3"
+					autocomplete="off"
+					required
+				>
+
+				<button type="submit">Count Significant Figures</button>
+			</form>
+
+			<p id="error" class="error hidden"></p>
+
+			<section id="result" class="result hidden">
+				<p>Number of significant figures</p>
+				<div id="count" class="count">0</div>
+			</section>
+
+			<section class="examples">
+				<h2>Examples</h2>
+
+				<div class="example">
+					<span>67.0</span>
+					<span>3 significant figures</span>
+				</div>
+
+				<div class="example">
+					<span>120</span>
+					<span>2 significant figures</span>
+				</div>
+
+				<div class="example">
+					<span>120.</span>
+					<span>3 significant figures</span>
+				</div>
+
+				<div class="example">
+					<span>6.02 × 10²³</span>
+					<span>3 significant figures</span>
+				</div>
+			</section>
+		</div>
+	</main>
+
+	<script src="/M2/Science/sig-fig-counting/script.js"></script>
+</body>
+
+</html>

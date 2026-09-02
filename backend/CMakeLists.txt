@@ -13,6 +13,7 @@ add_executable(server
     frontend.cpp
     M2/Math/quadratic-solver/quadraticSolver.cpp
     M2/Science/planet-weight/planetWeightCalculator.cpp
+    M2/Science/sig-fig-counting/countingSigFig.cpp
 )
 
 target_link_libraries(server PRIVATE Crow::Crow)

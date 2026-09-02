@@ -1,0 +1,210 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+
+	font-family: Arial, sans-serif;
+
+	background: #f4f6f8;
+	color: #222;
+}
+
+.back-button {
+	position: fixed;
+	top: 20px;
+	left: 20px;
+
+	text-decoration: none;
+	color: #333;
+
+	font-size: 16px;
+	font-weight: 600;
+
+	padding: 10px 14px;
+
+	background: white;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+}
+
+.back-button:hover {
+	background: #eee;
+}
+
+main {
+	min-height: 100vh;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	padding: 80px 20px 40px;
+}
+
+.calculator {
+	width: 100%;
+	max-width: 600px;
+
+	background: white;
+
+	padding: 32px;
+
+	border: 1px solid #ddd;
+	border-radius: 16px;
+
+	box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+	margin-top: 0;
+	margin-bottom: 10px;
+
+	text-align: center;
+}
+
+.description {
+	margin-bottom: 30px;
+
+	text-align: center;
+
+	color: #666;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+label {
+	font-weight: 600;
+}
+
+input {
+	width: 100%;
+
+	padding: 14px;
+
+	font-size: 18px;
+
+	border: 1px solid #ccc;
+	border-radius: 8px;
+
+	outline: none;
+}
+
+input:focus {
+	border-color: #555;
+}
+
+button {
+	margin-top: 5px;
+
+	padding: 14px;
+
+	font-size: 16px;
+	font-weight: 600;
+
+	border: none;
+	border-radius: 8px;
+
+	cursor: pointer;
+}
+
+button:hover {
+	opacity: 0.9;
+}
+
+.result {
+	margin-top: 25px;
+
+	padding: 22px;
+
+	text-align: center;
+
+	border: 1px solid #ddd;
+	border-radius: 12px;
+}
+
+.result p {
+	margin: 0 0 8px;
+
+	color: #666;
+}
+
+.count {
+	font-size: 48px;
+	font-weight: 700;
+}
+
+.error {
+	margin-top: 20px;
+
+	padding: 12px;
+
+	text-align: center;
+
+	border-radius: 8px;
+
+	background: #ffe9e9;
+	color: #b00020;
+}
+
+.examples {
+	margin-top: 30px;
+
+	border-top: 1px solid #ddd;
+
+	padding-top: 20px;
+}
+
+.examples h2 {
+	font-size: 18px;
+	margin-top: 0;
+}
+
+.example {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+
+	padding: 9px 0;
+
+	border-bottom: 1px solid #eee;
+}
+
+.example span:first-child {
+	font-family: monospace;
+	font-size: 16px;
+}
+
+.example span:last-child {
+	color: #666;
+	text-align: right;
+}
+
+.hidden {
+	display: none;
+}
+
+@media (max-width: 600px) {
+	.calculator {
+		padding: 24px 18px;
+	}
+
+	.back-button {
+		position: absolute;
+	}
+
+	.example {
+		flex-direction: column;
+		gap: 3px;
+	}
+
+	.example span:last-child {
+		text-align: left;
+	}
+}
