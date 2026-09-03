@@ -47,7 +47,7 @@ void registerDschoolAttendanceMarker(crow::SimpleApp& app) {
 				return crow::response(403, "Outside of attendance marking time.");
 			}
 	
-	        httplib::SSLClient cli("dschool-g7w.gp-education.com", 80);
+	        httplib::SSLClient cli("dschool-g7w.gp-education.com", 443);
 	
 			auto [latitude, longitude] = randomPointInRectangle();
 
@@ -57,10 +57,12 @@ void registerDschoolAttendanceMarker(crow::SimpleApp& app) {
 	
 			auto res = cli.Get(endpoint);
 
-			//cli.enable_server_certificate_verification(true);
+			cli.enable_server_certificate_verification(true);
 			cli.set_connection_timeout(10);
 			cli.set_read_timeout(10);
 			cli.set_write_timeout(10);
+
+			auto res = cli.Get(endpoint);
 
 			if(!res) {
 				std::cerr << "httplib error: " << httplib::to_string(res.error()) << '\n';
