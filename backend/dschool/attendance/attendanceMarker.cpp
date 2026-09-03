@@ -56,11 +56,18 @@ void registerDschoolAttendanceMarker(crow::SimpleApp& app) {
 	
 			auto res = cli.Get(endpoint);
 
+			cli.enable_server_certificate_verification(true);
+			cli.set_connection_timeout(10);
+			cli.set_read_timeout(10);
+			cli.set_write_timeout(10);
+
 			if(!res) {
+				std::cerr << "httplib error: " << httplib::to_string(res.error()) << '\n';
 				return crow::response(400, "Failed to mark attendance");
 			}
 
 			if(res->status != 200) {
+				std::cerr << "return code isn't 200 it's " << res->status << '\n';
 				return crow::response(400, "Failed to mark attendance!");
 			}
 
