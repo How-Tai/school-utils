@@ -15,6 +15,7 @@ add_executable(server
 	M2/Math/quadratic-solver/quadraticSolver.cpp
 	M2/Science/planet-weight/planetWeightCalculator.cpp
 	M2/Science/sig-fig-counting/countingSigFig.cpp
+	dschool/attendance/attendanceMarker.cpp
 )
 
 target_include_directories(server PRIVATE include)
