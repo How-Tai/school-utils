@@ -12,10 +12,10 @@ function showMessage(text, error = false) {
 form.addEventListener("submit", async (event) => {
 	event.preventDefault();
 
-	const studentId = input.value.trim();
+	const uid = input.value.trim();
 
-	if(!/^\d+$/.test(studentId)) {
-		showMessage("Student ID must contain only numbers.", true);
+	if(!uid) {
+		showMessage("Please enter your student ID.", true);
 		return;
 	}
 
@@ -23,24 +23,22 @@ form.addEventListener("submit", async (event) => {
 	message.hidden = true;
 
 	try {
-		const res = await fetch("/api/attendance", {
+		const res = await fetch("/dschool/attendance", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
 			},
-			body: JSON.stringify({
-				uid: studentId
-			})
+			body: JSON.stringify({ uid })
 		});
 
-		const data = await res.json();
+		const text = await res.text();
 
 		if(!res.ok) {
-			showMessage(data.error || "Could not mark attendance.", true);
+			showMessage(text || "Failed to mark attendance.", true);
 			return;
 		}
 
-		showMessage(data.message || "Attendance marked.");
+		showMessage("Attendance marked!");
 		form.reset();
 		input.focus();
 	}
