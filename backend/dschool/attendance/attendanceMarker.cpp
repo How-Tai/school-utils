@@ -46,7 +46,7 @@ void registerDschoolAttendanceMarker(crow::SimpleApp& app) {
 				return crow::response(403, "Outside of attendance marking time.");
 			}
 	
-	        httplib::SSLClient cli("dschool-g7w.gp-education.com");
+	        httplib::SSLClient cli("dschool-g7w.gp-education.com", 80);
 	
 			auto [latitude, longitude] = randomPointInRectangle();
 
@@ -54,7 +54,7 @@ void registerDschoolAttendanceMarker(crow::SimpleApp& app) {
 	
 			std::string endpoint = "/dschoolapp_service/read_qrcode.php?app=s&user_id=" + uid + "&school_id=1040101001&change_stat=1&type=a&qr=DSCHOOL-115&latitude=" + std::to_string(latitude) + "&longitude=" + std::to_string(longitude) + "&servername=dschool-g7w.gp-education.com";
 	
-			auto res = cli.Get(endpoint, 80);
+			auto res = cli.Get(endpoint);
 
 			//cli.enable_server_certificate_verification(true);
 			cli.set_connection_timeout(10);
