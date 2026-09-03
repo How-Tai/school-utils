@@ -7,6 +7,8 @@
 #include "M2/Science/planet-weight/planetWeightCalculator.h"
 #include "M2/Science/sig-fig-counting/countingSigFig.h"
 
+#include "dschool/attendance/attendanceMarker.h"
+
 
 void initServer(crow::SimpleApp& app) {
 
@@ -18,4 +20,7 @@ void initServer(crow::SimpleApp& app) {
 
     registerSciPlanetWeightCalculator(app);
     registerSciSigFigCounting(app);
+
+
+    registerDschoolAttendanceMarker(app);
 }
