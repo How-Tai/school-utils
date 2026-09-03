@@ -54,9 +54,9 @@ void registerDschoolAttendanceMarker(crow::SimpleApp& app) {
 	
 			std::string endpoint = "/dschoolapp_service/read_qrcode.php?app=s&user_id=" + uid + "&school_id=1040101001&change_stat=1&type=a&qr=DSCHOOL-115&latitude=" + std::to_string(latitude) + "&longitude=" + std::to_string(longitude) + "&servername=dschool-g7w.gp-education.com";
 	
-			auto res = cli.Get(endpoint);
+			auto res = cli.Get(endpoint, 80);
 
-			cli.enable_server_certificate_verification(true);
+			//cli.enable_server_certificate_verification(true);
 			cli.set_connection_timeout(10);
 			cli.set_read_timeout(10);
 			cli.set_write_timeout(10);
