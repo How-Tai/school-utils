@@ -8,12 +8,9 @@ bool attendanceOpen() {
 	std::time_t t = std::chrono::system_clock::to_time_t(now);
 
 	std::tm tm{};
+	gmtime_r(&t, &tm);
 
-	setenv("TZ", "Asia/Bangkok", 1);
-	tzset();
-	localtime_r(&t, &tm);
-
-	int minutes = tm.tm_hour * 60 + tm.tm_min;
+	int minutes = ((tm.tm_hour + 7) % 24) * 60 + tm.tm_min;
 
 	return 5 * 60 + 30 <= minutes && minutes <= 8 * 60 + 15;
 }
