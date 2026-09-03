@@ -23,13 +23,33 @@ void registerDschoolAttendanceMarker(crow::SimpleApp& app) {
     CROW_ROUTE(app, "/dschool/attendance")
     .methods(crow::HTTPMethod::POST)
     ([](const crow::request& req) {
-        auto payload = crow::json::load(req.body);
+		try {
+	        auto payload = crow::json::load(req.body);
+	
+	        if(!payload) {
+	            return crow::response(400, "Invalid data");
+	        }
+	
+	        httplib::SSLClient cli("dschool-g7w.gp-education.com");
+	
+			auto [longitude, latitude] = randomPointInRectangle();
+	
+			std::string endpoint = "dschoolapp_service/read_qrcode.php?app=s&user_id=" + std::to_string(payload["uid"]) + "&school_id=1040101001&change_stat=1&type=a&qr=DSCHOOL-115&latitude=" + std::to_string(latitude) + "&longitude=" + std::to_string(longitude) + "&servername=dschool-g7w.gp-education.com";
+	
+			auto res = cli.Get(endpoint);
 
-        if(!payload) {
-            return crow::response(400, "Invalid data");
-        }
+			if(!res) {
+				return crow::response(400, "Failed to mark attendance");
+			}
 
-        httplib::SSLClient cli("dschool-g7w.gp-education.com");
-        
+			if(res->status != 200) {
+				return crow::response(400, "Failed to mark attendance!");
+			}
+
+			return crow::response(200, "ok");
+		}
+		catch (const std::exception& e) {
+            return crow::response(400, e.what());
+		}
     });
 }
