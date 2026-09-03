@@ -6,14 +6,21 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Crow CONFIG REQUIRED)
+find_package(httplib CONFIG REQUIRED)
+find_package(OpenSSL REQUIRED)
 
 add_executable(server
-    main.cpp
-    paths.cpp
-    frontend.cpp
-    M2/Math/quadratic-solver/quadraticSolver.cpp
-    M2/Science/planet-weight/planetWeightCalculator.cpp
-    M2/Science/sig-fig-counting/countingSigFig.cpp
+	main.cpp
+	paths.cpp
+	frontend.cpp
+	M2/Math/quadratic-solver/quadraticSolver.cpp
+	M2/Science/planet-weight/planetWeightCalculator.cpp
+	M2/Science/sig-fig-counting/countingSigFig.cpp
 )
 
-target_link_libraries(server PRIVATE Crow::Crow)
+target_link_libraries(server PRIVATE
+	Crow::Crow
+	httplib::httplib
+	OpenSSL::SSL
+	OpenSSL::Crypto
+)
