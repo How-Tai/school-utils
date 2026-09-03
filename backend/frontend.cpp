@@ -97,4 +97,29 @@ void registerFrontend(crow::SimpleApp& app) {
         res.set_static_file_info("frontend/M2/Science/sig-fig-counting/style.css");
         return res;
     });
+
+
+
+    
+
+    CROW_ROUTE(app, "/dschool/attendance")
+    ([] {
+        crow::response res;
+        res.set_static_file_info("frontend/dschool/attendance/index.html");
+        return res;
+    });
+
+    CROW_ROUTE(app, "/dschool/attendance/script.js")
+    ([] {
+        crow::response res;
+        res.set_static_file_info("frontend/dschool/attendance/script.js");
+        return res;
+    });
+
+    CROW_ROUTE(app, "/dschool/attendance/style.css")
+    ([] {
+        crow::response res;
+        res.set_static_file_info("frontend/dschool/attendance/style.css");
+        return res;
+    });
 }
