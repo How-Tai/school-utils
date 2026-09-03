@@ -4,6 +4,7 @@
 #include "httplib.h"
 
 bool attendanceOpen() {
+    return 1;
 	auto now = std::chrono::system_clock::now();
 	std::time_t t = std::chrono::system_clock::to_time_t(now);
 
