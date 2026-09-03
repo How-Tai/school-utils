@@ -74,3 +74,19 @@ button:disabled {
 	background: #fde7ea;
 	color: #a1192e;
 }
+
+.back-button {
+	position: fixed;
+	top: 16px;
+	left: 16px;
+	padding: 10px 14px;
+	text-decoration: none;
+	color: black;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	background: white;
+}
+
+.back-button:hover {
+	background: #f0f0f0;
+}
