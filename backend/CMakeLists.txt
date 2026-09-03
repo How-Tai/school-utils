@@ -6,7 +6,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Crow CONFIG REQUIRED)
-find_package(httplib CONFIG REQUIRED)
 find_package(OpenSSL REQUIRED)
 
 add_executable(server
@@ -18,9 +17,10 @@ add_executable(server
 	M2/Science/sig-fig-counting/countingSigFig.cpp
 )
 
+target_include_directories(server PRIVATE include)
+
 target_link_libraries(server PRIVATE
 	Crow::Crow
-	httplib::httplib
 	OpenSSL::SSL
 	OpenSSL::Crypto
 )
