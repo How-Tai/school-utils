@@ -3,6 +3,21 @@
 #define CPPHTTPLIB_OPENSSL_SUPPORT
 #include "httplib.h"
 
+bool attendanceOpen() {
+	auto now = std::chrono::system_clock::now();
+	std::time_t t = std::chrono::system_clock::to_time_t(now);
+
+	std::tm tm{};
+
+	setenv("TZ", "Asia/Bangkok", 1);
+	tzset();
+	localtime_r(&t, &tm);
+
+	int minutes = tm.tm_hour * 60 + tm.tm_min;
+
+	return 5 * 60 + 30 <= minutes && minutes <= 8 * 60 + 15;
+}
+
 std::pair<double, double> randomPointInRectangle() {
 	double lat1 = 16.4316281;
 	double lon1 = 102.8343359;
@@ -29,6 +44,10 @@ void registerDschoolAttendanceMarker(crow::SimpleApp& app) {
 	        if(!payload) {
 	            return crow::response(400, "Invalid data");
 	        }
+
+			if(!attendanceOpen()) {
+				return crow::response(403, "Outside of attendance marking time.");
+			}
 	
 	        httplib::SSLClient cli("dschool-g7w.gp-education.com");
 	
