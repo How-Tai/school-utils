@@ -1,37 +1,34 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 40px;
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 40px;
 }
 
-h1 {
-    text-align: center;
-}
+h1 { text-align: center; }
 
 .tools {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-
-    max-width: 900px;
-    margin: 40px auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 20px;
+	max-width: 900px;
+	margin: 40px auto;
 }
 
 .tool {
-    display: block;
-
-    padding: 25px;
-
-    border: 1px solid #ccc;
-    border-radius: 12px;
-
-    text-align: center;
-    text-decoration: none;
-    color: black;
-
-    font-size: 18px;
+	display: block;
+	padding: 25px;
+	border: 1px solid #ccc;
+	border-radius: 12px;
+	text-align: center;
+	text-decoration: none;
+	color: black;
+	font-size: 18px;
 }
 
-.tool:hover {
-    transform: translateY(-3px);
-}
+.tool:hover { transform: translateY(-3px); }
+
+.announcements-section { max-width: 900px; margin: 40px auto; }
+#announcements { display: grid; gap: 12px; }
+#announcements article { border: 1px solid #ddd; border-radius: 12px; padding: 16px; }
+#announcements h3 { margin-top: 0; }
+#announcements p { white-space: pre-wrap; }
