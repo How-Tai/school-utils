@@ -20,6 +20,8 @@ add_executable(server
 
 target_include_directories(server PRIVATE include)
 
+target_compile_definitions(server PRIVATE CPPHTTPLIB_OPENSSL_SUPPORT)
+
 target_link_libraries(server PRIVATE
 	Crow::Crow
 	OpenSSL::SSL
