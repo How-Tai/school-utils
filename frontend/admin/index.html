@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin - School Utils</title>
+	<link rel="stylesheet" href="/admin/style.css">
+</head>
+<body>
+	<a href="/">← Back</a>
+	<main>
+		<h1>Admin Panel</h1>
+		<p id="identity"></p>
+		<section>
+			<h2>Post announcement</h2>
+			<form id="announcement-form">
+				<input id="title" maxlength="120" placeholder="Title" required>
+				<textarea id="announcement-message" maxlength="4000" placeholder="Announcement" required></textarea>
+				<button>Post</button>
+			</form>
+			<p id="announcement-status"></p>
+		</section>
+		<section>
+			<h2>Anonymous inbox</h2>
+			<div id="feedback"></div>
+		</section>
+	</main>
+	<script src="/admin/script.js"></script>
+</body>
+</html>
