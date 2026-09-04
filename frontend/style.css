@@ -6,6 +6,21 @@ body {
 
 h1 { text-align: center; }
 
+.corner-button {
+	position: fixed;
+	z-index: 10;
+	padding: 10px 14px;
+	border: 1px solid #ccc;
+	border-radius: 8px;
+	background: white;
+	color: black;
+	text-decoration: none;
+}
+
+.corner-button:hover { background: #f0f0f0; }
+.account-button { top: 16px; right: 16px; }
+.feedback-button { right: 16px; bottom: 16px; }
+
 .tools {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
