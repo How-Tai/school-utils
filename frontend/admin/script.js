@@ -29,13 +29,7 @@ async function loadAnnouncements() {
 	}
 }
 
-async function load() {
-	const user = await api("/api/account/me");
-	if(!user.loggedIn || !["admin", "owner"].includes(user.role)) {
-		document.querySelector("main").innerHTML = "<h1>Admin access required</h1><a href='/login'>Login</a>";
-		return;
-	}
-	document.getElementById("identity").textContent = `${user.displayName} · ${user.role}`;
+async function loadFeedback() {
 	const data = await api("/api/admin/feedback");
 	feedback.innerHTML = "";
 	if(data.feedback.length === 0) feedback.textContent = "No feedback yet.";
@@ -44,13 +38,28 @@ async function load() {
 		const heading = document.createElement("h3");
 		const message = document.createElement("p");
 		const time = document.createElement("small");
+		const deleteButton = document.createElement("button");
 		heading.textContent = item.type === "complaint" ? "Teacher complaint" : "Suggestion";
 		message.textContent = item.message;
 		time.textContent = item.createdAt;
-		card.append(heading, message, time);
+		deleteButton.textContent = "Delete";
+		deleteButton.addEventListener("click", async () => {
+			await api(`/api/admin/feedback/${item.id}`, {method: "DELETE"});
+			await loadFeedback();
+		});
+		card.append(heading, message, time, deleteButton);
 		feedback.append(card);
 	}
-	await loadAnnouncements();
+}
+
+async function load() {
+	const user = await api("/api/account/me");
+	if(!user.loggedIn || !["admin", "owner"].includes(user.role)) {
+		document.querySelector("main").innerHTML = "<h1>Admin access required</h1><a href='/login'>Login</a>";
+		return;
+	}
+	document.getElementById("identity").textContent = `${user.displayName} · ${user.role}`;
+	await Promise.all([loadFeedback(), loadAnnouncements()]);
 }
 
 document.getElementById("announcement-form").addEventListener("submit", async event => {
