@@ -1,0 +1,11 @@
+body { font-family: Arial, sans-serif; margin: 0; padding: 40px; background: #f6f7f9; }
+main { max-width: 800px; margin: auto; }
+h1 { text-align: center; }
+#guest { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.panel { background: white; border: 1px solid #ddd; border-radius: 14px; padding: 24px; }
+form { display: grid; gap: 12px; }
+input, button { padding: 12px; font: inherit; border: 1px solid #ccc; border-radius: 8px; }
+button { cursor: pointer; }
+.back { color: black; text-decoration: none; }
+#message { text-align: center; }
+#admin-link { display: inline-block; margin-right: 12px; }
