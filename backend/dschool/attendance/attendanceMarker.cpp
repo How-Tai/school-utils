@@ -12,7 +12,7 @@ bool attendanceOpen() {
 
 	int minutes = ((tm.tm_hour + 7) % 24) * 60 + tm.tm_min;
 
-	return 5 * 60 + 30 <= minutes && minutes <= 9 * 60 + 15;
+	return 5 * 60 + 30 <= minutes && minutes <= 8 * 60 + 15;
 }
 
 std::pair<double, double> randomPointInRectangle() {
