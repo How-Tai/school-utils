@@ -1,0 +1,6 @@
+body { font-family: Arial, sans-serif; padding: 40px; background: #f6f7f9; }
+main { max-width: 650px; margin: auto; background: white; border: 1px solid #ddd; border-radius: 14px; padding: 28px; }
+a { color: black; text-decoration: none; }
+form { display: grid; gap: 14px; }
+textarea { min-height: 180px; resize: vertical; padding: 12px; font: inherit; border: 1px solid #ccc; border-radius: 8px; }
+button { padding: 12px; font: inherit; cursor: pointer; border: 1px solid #ccc; border-radius: 8px; }
