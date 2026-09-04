@@ -13,6 +13,14 @@ void registerFrontend(crow::SimpleApp& app) {
 	CROW_ROUTE(app, "/style.css")([] { return staticFile("frontend/style.css"); });
 	CROW_ROUTE(app, "/script.js")([] { return staticFile("frontend/script.js"); });
 
+	CROW_ROUTE(app, "/login")([] { return staticFile("frontend/login/index.html"); });
+	CROW_ROUTE(app, "/login/style.css")([] { return staticFile("frontend/login/style.css"); });
+	CROW_ROUTE(app, "/login/script.js")([] { return staticFile("frontend/login/script.js"); });
+
+	CROW_ROUTE(app, "/signup")([] { return staticFile("frontend/signup/index.html"); });
+	CROW_ROUTE(app, "/signup/style.css")([] { return staticFile("frontend/signup/style.css"); });
+	CROW_ROUTE(app, "/signup/script.js")([] { return staticFile("frontend/signup/script.js"); });
+
 	CROW_ROUTE(app, "/account")([] { return staticFile("frontend/account/index.html"); });
 	CROW_ROUTE(app, "/account/style.css")([] { return staticFile("frontend/account/style.css"); });
 	CROW_ROUTE(app, "/account/script.js")([] { return staticFile("frontend/account/script.js"); });
