@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Account - School Utils</title>
+	<link rel="stylesheet" href="/account/style.css">
+</head>
+<body>
+	<a class="back" href="/">← Back</a>
+	<main>
+		<h1>School Utils Account</h1>
+		<section id="guest">
+			<div class="panel">
+				<h2>Login</h2>
+				<form id="login-form">
+					<input id="login-username" placeholder="Username" required>
+					<input id="login-password" type="password" placeholder="Password" required>
+					<button>Login</button>
+				</form>
+			</div>
+			<div class="panel">
+				<h2>Sign up</h2>
+				<form id="signup-form">
+					<input id="signup-name" placeholder="Display name" maxlength="40" required>
+					<input id="signup-username" placeholder="Username" minlength="3" maxlength="24" required>
+					<input id="signup-password" type="password" placeholder="Password (10+ characters)" minlength="10" required>
+					<button>Create account</button>
+				</form>
+			</div>
+		</section>
+		<section id="profile" class="panel" hidden>
+			<h2 id="welcome"></h2>
+			<p id="role"></p>
+			<a id="admin-link" href="/admin" hidden>Open admin panel</a>
+			<button id="logout">Logout</button>
+		</section>
+		<p id="message"></p>
+	</main>
+	<script src="/account/script.js"></script>
+</body>
+</html>
