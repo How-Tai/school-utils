@@ -1,3 +1,30 @@
+async function loadAccountButton() {
+	const button = document.getElementById("account-button");
+
+	try {
+		const res = await fetch("/api/account/me");
+		const data = await res.json();
+
+		if(!data.loggedIn) return;
+
+		button.textContent = "Logout";
+		button.href = "#";
+		button.addEventListener("click", async (event) => {
+			event.preventDefault();
+			button.textContent = "Logging out...";
+			button.style.pointerEvents = "none";
+
+			try {
+				await fetch("/api/account/logout", { method: "POST" });
+			}
+			finally {
+				location.reload();
+			}
+		});
+	}
+	catch {}
+}
+
 async function loadAnnouncements() {
 	const container = document.getElementById("announcements");
 	try {
@@ -19,4 +46,5 @@ async function loadAnnouncements() {
 	catch(error) { container.textContent = error.message; }
 }
 
+loadAccountButton();
 loadAnnouncements();
