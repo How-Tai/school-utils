@@ -75,7 +75,7 @@ void registerAccount(crow::SimpleApp& app) {
 		std::string password = body["password"].s();
 		if(!validUsername(username)) return jsonError(400, "Username must be 3-24 letters, numbers, _ or -");
 		if(displayName.empty() || displayName.size() > 40) return jsonError(400, "Invalid display name");
-		if(password.size() < 10 || password.size() > 128) return jsonError(400, "Password must be 10-128 characters");
+		if(password.empty()) return jsonError(400, "Password cannot be empty");
 
 		std::string salt = randomHex(16);
 		std::string hash = passwordHash(password, salt);
@@ -100,7 +100,7 @@ void registerAccount(crow::SimpleApp& app) {
 		if(!body || !body.has("username") || !body.has("password")) return jsonError(400, "Missing fields");
 		std::string username = body["username"].s();
 		std::string password = body["password"].s();
-		if(username.size() > 24 || password.size() > 128) return jsonError(401, "Invalid username or password");
+		if(username.size() > 24 || password.empty()) return jsonError(401, "Invalid username or password");
 
 		try {
 			auto db = openDatabase();
