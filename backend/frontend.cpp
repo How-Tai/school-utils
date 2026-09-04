@@ -1,125 +1,43 @@
 #include <crow.h>
 
+namespace {
+	crow::response staticFile(const std::string& path) {
+		crow::response res;
+		res.set_static_file_info(path);
+		return res;
+	}
+}
+
 void registerFrontend(crow::SimpleApp& app) {
+	CROW_ROUTE(app, "/")([] { return staticFile("frontend/index.html"); });
+	CROW_ROUTE(app, "/style.css")([] { return staticFile("frontend/style.css"); });
+	CROW_ROUTE(app, "/script.js")([] { return staticFile("frontend/script.js"); });
 
-    CROW_ROUTE(app, "/")
-    ([] {
-        crow::response res;
-        res.set_static_file_info("frontend/index.html");
-        return res;
-    });
+	CROW_ROUTE(app, "/account")([] { return staticFile("frontend/account/index.html"); });
+	CROW_ROUTE(app, "/account/style.css")([] { return staticFile("frontend/account/style.css"); });
+	CROW_ROUTE(app, "/account/script.js")([] { return staticFile("frontend/account/script.js"); });
 
-    CROW_ROUTE(app, "/style.css")
-    ([] {
-        crow::response res;
-        res.set_static_file_info("frontend/style.css");
-        return res;
-    });
+	CROW_ROUTE(app, "/feedback")([] { return staticFile("frontend/feedback/index.html"); });
+	CROW_ROUTE(app, "/feedback/style.css")([] { return staticFile("frontend/feedback/style.css"); });
+	CROW_ROUTE(app, "/feedback/script.js")([] { return staticFile("frontend/feedback/script.js"); });
 
-    CROW_ROUTE(app, "/script.js")
-    ([] {
-        crow::response res;
-        res.set_static_file_info("frontend/script.js");
-        return res;
-    });
+	CROW_ROUTE(app, "/admin")([] { return staticFile("frontend/admin/index.html"); });
+	CROW_ROUTE(app, "/admin/style.css")([] { return staticFile("frontend/admin/style.css"); });
+	CROW_ROUTE(app, "/admin/script.js")([] { return staticFile("frontend/admin/script.js"); });
 
+	CROW_ROUTE(app, "/M2/Math/quadratic-solver")([] { return staticFile("frontend/M2/Math/quadratic-solver/index.html"); });
+	CROW_ROUTE(app, "/M2/Math/quadratic-solver/script.js")([] { return staticFile("frontend/M2/Math/quadratic-solver/script.js"); });
+	CROW_ROUTE(app, "/M2/Math/quadratic-solver/style.css")([] { return staticFile("frontend/M2/Math/quadratic-solver/style.css"); });
 
+	CROW_ROUTE(app, "/M2/Science/planet-weight")([] { return staticFile("frontend/M2/Science/planet-weight/index.html"); });
+	CROW_ROUTE(app, "/M2/Science/planet-weight/script.js")([] { return staticFile("frontend/M2/Science/planet-weight/script.js"); });
+	CROW_ROUTE(app, "/M2/Science/planet-weight/style.css")([] { return staticFile("frontend/M2/Science/planet-weight/style.css"); });
 
+	CROW_ROUTE(app, "/M2/Science/sig-fig-counting")([] { return staticFile("frontend/M2/Science/sig-fig-counting/index.html"); });
+	CROW_ROUTE(app, "/M2/Science/sig-fig-counting/script.js")([] { return staticFile("frontend/M2/Science/sig-fig-counting/script.js"); });
+	CROW_ROUTE(app, "/M2/Science/sig-fig-counting/style.css")([] { return staticFile("frontend/M2/Science/sig-fig-counting/style.css"); });
 
-
-        CROW_ROUTE(app, "/M2/Math/quadratic-solver")
-    ([] {
-        crow::response res;
-        res.set_static_file_info("frontend/M2/Math/quadratic-solver/index.html");
-        return res;
-    });
-
-    CROW_ROUTE(app, "/M2/Math/quadratic-solver/script.js")
-    ([] {
-        crow::response res;
-        res.set_static_file_info("frontend/M2/Math/quadratic-solver/script.js");
-        return res;
-    });
-
-    CROW_ROUTE(app, "/M2/Math/quadratic-solver/style.css")
-    ([] {
-        crow::response res;
-        res.set_static_file_info("frontend/M2/Math/quadratic-solver/style.css");
-        return res;
-    });
-
-
-
-
-
-    CROW_ROUTE(app, "/M2/Science/planet-weight")
-    ([] {
-        crow::response res;
-        res.set_static_file_info("frontend/M2/Science/planet-weight/index.html");
-        return res;
-    });
-
-    CROW_ROUTE(app, "/M2/Science/planet-weight/script.js")
-    ([] {
-        crow::response res;
-        res.set_static_file_info("frontend/M2/Science/planet-weight/script.js");
-        return res;
-    });
-
-    CROW_ROUTE(app, "/M2/Science/planet-weight/style.css")
-    ([] {
-        crow::response res;
-        res.set_static_file_info("frontend/M2/Science/planet-weight/style.css");
-        return res;
-    });
-
-
-
-
-
-    CROW_ROUTE(app, "/M2/Science/sig-fig-counting")
-    ([] {
-        crow::response res;
-        res.set_static_file_info("frontend/M2/Science/sig-fig-counting/index.html");
-        return res;
-    });
-
-    CROW_ROUTE(app, "/M2/Science/sig-fig-counting/script.js")
-    ([] {
-        crow::response res;
-        res.set_static_file_info("frontend/M2/Science/sig-fig-counting/script.js");
-        return res;
-    });
-
-    CROW_ROUTE(app, "/M2/Science/sig-fig-counting/style.css")
-    ([] {
-        crow::response res;
-        res.set_static_file_info("frontend/M2/Science/sig-fig-counting/style.css");
-        return res;
-    });
-
-
-
-    
-
-    CROW_ROUTE(app, "/dschool/attendance")
-    ([] {
-        crow::response res;
-        res.set_static_file_info("frontend/dschool/attendance/index.html");
-        return res;
-    });
-
-    CROW_ROUTE(app, "/dschool/attendance/script.js")
-    ([] {
-        crow::response res;
-        res.set_static_file_info("frontend/dschool/attendance/script.js");
-        return res;
-    });
-
-    CROW_ROUTE(app, "/dschool/attendance/style.css")
-    ([] {
-        crow::response res;
-        res.set_static_file_info("frontend/dschool/attendance/style.css");
-        return res;
-    });
+	CROW_ROUTE(app, "/dschool/attendance")([] { return staticFile("frontend/dschool/attendance/index.html"); });
+	CROW_ROUTE(app, "/dschool/attendance/script.js")([] { return staticFile("frontend/dschool/attendance/script.js"); });
+	CROW_ROUTE(app, "/dschool/attendance/style.css")([] { return staticFile("frontend/dschool/attendance/style.css"); });
 }
