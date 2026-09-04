@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>School Utils</title>
-
-    <link rel="stylesheet" href="/style.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>School Utils</title>
+	<link rel="stylesheet" href="/style.css">
 </head>
-
 <body>
+	<h1>School Utils</h1>
 
-    <h1>School Utils</h1>
+	<div class="tools">
+		<a class="tool" href="/account">Account / Login</a>
+		<a class="tool" href="/feedback">Anonymous Feedback</a>
+		<a class="tool" href="https://class-schedule-olive.vercel.app/">Class Schedule</a>
+		<a class="tool" href="/M2/Math/quadratic-solver">Quadratic Equation Solver</a>
+		<a class="tool" href="/M2/Science/planet-weight">Planet Weight Calculator</a>
+		<a class="tool" href="/M2/Science/sig-fig-counting">Sig Fig Counter</a>
+		<a class="tool" href="/dschool/attendance">Dschool Attendance Marker</a>
+	</div>
 
-    <div class="tools">
-        <a class="tool" href="https://class-schedule-olive.vercel.app/">Class Schedule</a>
-        <a class="tool" href="/M2/Math/quadratic-solver">Quadratic Equation Solver</a>
-        <a class="tool" href="/M2/Science/planet-weight">Planet Weight Calculator</a>
-        <a class="tool" href="/M2/Science/sig-fig-counting">Sig Fig Counter</a>
-       <a class="tool" href="/dschool/attendance">Dschool Attendance Marker</a>
-    </div>
+	<section class="announcements-section">
+		<h2>Announcements</h2>
+		<div id="announcements">Loading...</div>
+	</section>
 
+	<script src="/script.js"></script>
 </body>
-
 </html>
