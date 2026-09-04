@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login - School Utils</title>
+	<link rel="stylesheet" href="/login/style.css">
+</head>
+<body>
+	<a class="back-button" href="/">← Back</a>
+
+	<main class="card">
+		<h1>Login</h1>
+		<form id="login-form">
+			<label for="username">Username</label>
+			<input id="username" autocomplete="username" required>
+
+			<label for="password">Password</label>
+			<input id="password" type="password" autocomplete="current-password" required>
+
+			<button type="submit">Login</button>
+		</form>
+		<p class="switch-page">Don't have an account? <a href="/signup">Sign up</a></p>
+		<p id="message" hidden></p>
+	</main>
+
+	<script src="/login/script.js"></script>
+</body>
+</html>
