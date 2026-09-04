@@ -90,6 +90,22 @@ void registerCommunity(crow::SimpleApp& app) {
 		}
 	});
 
+	CROW_ROUTE(app, "/api/admin/feedback/<int>").methods(crow::HTTPMethod::DELETE)([](const crow::request& req, int id) {
+		if(!isAdmin(currentUser(req))) return errorResponse(403, "Admin access required");
+		if(id <= 0) return errorResponse(400, "Invalid feedback id");
+		try {
+			auto db = openDatabase();
+			auto result = queryDatabase(db.get(), "DELETE FROM feedback WHERE id = $1", {std::to_string(id)});
+			if(!databaseResultOk(result.get())) return errorResponse(500, "Could not delete feedback");
+			crow::json::wvalue response;
+			response["ok"] = true;
+			return crow::response(200, response);
+		}
+		catch(...) {
+			return errorResponse(500, "Database unavailable");
+		}
+	});
+
 	CROW_ROUTE(app, "/api/admin/announcements").methods(crow::HTTPMethod::GET)([](const crow::request& req) {
 		if(!isAdmin(currentUser(req))) return errorResponse(403, "Admin access required");
 		try {
