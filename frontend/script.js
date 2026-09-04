@@ -1,5 +1,6 @@
 async function loadAccountButton() {
 	const button = document.getElementById("account-button");
+	const adminButton = document.getElementById("admin-button");
 
 	try {
 		const res = await fetch("/api/account/me");
@@ -7,6 +8,7 @@ async function loadAccountButton() {
 
 		if(!data.loggedIn) return;
 
+		adminButton.hidden = !["admin", "owner"].includes(data.role);
 		button.textContent = "Logout";
 		button.href = "#";
 		button.addEventListener("click", async (event) => {
@@ -15,7 +17,7 @@ async function loadAccountButton() {
 			button.style.pointerEvents = "none";
 
 			try {
-				await fetch("/api/account/logout", { method: "POST" });
+				await fetch("/api/account/logout", {method: "POST"});
 			}
 			finally {
 				location.reload();
