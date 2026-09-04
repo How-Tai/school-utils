@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Anonymous Feedback</title>
+	<link rel="stylesheet" href="/feedback/style.css">
+</head>
+<body>
+	<a href="/">← Back</a>
+	<main>
+		<h1>Anonymous Feedback</h1>
+		<p>This form does not attach your School Utils account to your submission. If you want to stay anonymous, don't put your name or identifying details in the message.</p>
+		<form id="feedback-form">
+			<label><input type="radio" name="type" value="suggestion" checked> Suggestion</label>
+			<label><input type="radio" name="type" value="complaint"> Teacher complaint</label>
+			<textarea id="message-input" maxlength="4000" placeholder="Write your feedback..." required></textarea>
+			<button>Submit anonymously</button>
+		</form>
+		<p id="status"></p>
+	</main>
+	<script src="/feedback/script.js"></script>
+</body>
+</html>
