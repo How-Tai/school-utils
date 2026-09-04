@@ -1,0 +1,10 @@
+body { font-family: Arial, sans-serif; padding: 40px; background: #f6f7f9; }
+main { max-width: 900px; margin: auto; }
+a { color: black; text-decoration: none; }
+section, article { background: white; border: 1px solid #ddd; border-radius: 14px; padding: 20px; margin: 18px 0; }
+form { display: grid; gap: 12px; }
+input, textarea, button { padding: 12px; font: inherit; border: 1px solid #ccc; border-radius: 8px; }
+textarea { min-height: 100px; resize: vertical; }
+button { cursor: pointer; }
+article h3 { margin-top: 0; }
+article p { white-space: pre-wrap; }
